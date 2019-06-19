@@ -1,0 +1,39 @@
+.registration-container {
+    width: 40%;
+    margin: 2% auto;
+    padding: 2%;
+}
+
+.title {
+    margin-bottom: 2rem;
+}
+
+.registration {
+    width: 40%;
+    border: 2px solid black;
+    margin: 2% auto;
+    padding: 2%;
+}
+
+.username {
+    float: right;
+}
+
+.submit-registration {
+    height: 1rem;
+}
+
+.submit-button {
+    margin-top: 2rem;
+    height: 1rem;
+}
+
+.registration-title {
+    text-decoration: underline;
+    margin-bottom: 1rem;
+}
+
+.back-button {
+    margin-top: 1rem;
+    height: 1rem;
+}
