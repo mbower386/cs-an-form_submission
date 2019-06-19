@@ -1,25 +1,31 @@
 using FormSubmission.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System.Diagnostics;
 
-namespace FormSubmission.Controllers
-{
-    public class FormSubmissionController : Controller
-    {
+namespace FormSubmission.Controllers {
+    public class FormSubmissionController : Controller {
         // Index
-        [HttpGet]
-        [Route ("")]
-        public ViewResult Index ()
-        {
-            return View ();
+        [HttpGet ("")]
+        public IActionResult Index () {
+            return View (new User());
         }
 
-        [HttpPost]
-        [Route ("submit")]
-        public IActionResult Submit ()
+        // In HomeController
+        [HttpPost("user/create")]
+        public IActionResult Create(User user)
         {
-
-            return View ("Success");
+            if(ModelState.IsValid)
+            {
+                // do somethng!  maybe insert into db?  then we will redirect
+                return View("Success");
+            }
+            else
+            {
+                // Oh no!  We need to return a ViewResponse to preserve the ModelState, and the errors it now contains!
+                return View("Index", user);
+            }
         }
     }
 }

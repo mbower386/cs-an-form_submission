@@ -5,15 +5,15 @@ namespace FormSubmission.Models
     public class User
     {
         [Required]
-        [MinLength (3)]
+        [MinLength (3, ErrorMessage="First name must have at least 3 characters.")]
         public string FirstName { get; set; }
 
         [Required]
-        [MinLength (3)]
+        [MinLength (3, ErrorMessage="Last name must have at least 3 characters.")]
         public string LastName { get; set; }
 
         [Required]
-        [Range (0, 99)]
+        [Range (0, 999, ErrorMessage="Please enter a valid age.")]
         public int Age { get; set; }
 
         [Required]
@@ -22,16 +22,7 @@ namespace FormSubmission.Models
 
         [Required]
         [DataType (DataType.Password)]
-        [MinLength (8)]
+        [MinLength (8, ErrorMessage="Password must have at least 8 characters.")]
         public string Password { get; set; }
-
-        public User (string firstName, string lastName, int age, string email, string password)
-        {
-            FirstName = firstName;
-            LastName = lastName;
-            Age = age;
-            Email = email;
-            Password = password;
-        }
     }
 }

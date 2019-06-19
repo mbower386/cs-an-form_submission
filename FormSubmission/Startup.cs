@@ -31,6 +31,10 @@ namespace FormSubmission
             {
                 app.UseDeveloperExceptionPage ();
             }
+            else
+            {
+                app.UseExceptionHandler("/FormSubmission/Error");
+            }
 
             app.UseStaticFiles ();
             app.UseMvc ();
